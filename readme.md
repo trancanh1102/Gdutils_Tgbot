@@ -36,7 +36,7 @@ After adding your site to Cloudfare - We need to create a subdomain
 
 ## 🔳 Installation
 ```
-git clone https://github.com/roshanconnor123/Gdutils_Tgbot
+git clone https://github.com/trancanh1102/Gdutils_Tgbot
 ```
 ```
 cd Gdutils_Tgbot && nano config.js
