@@ -705,21 +705,21 @@ async function copy_file (id, parent, use_sa, limit, task_id) {
       if (!use_sa && message && message.toLowerCase().includes('rate limit')) {
         throw new Error('Personal Drive Limit：' + message)
       }
-      if (use_sa && message && message.toLowerCase().includes('rate limit')) {
-        retry--
-        if (gtoken.exceed_count >= EXCEED_LIMIT) {
-          SA_TOKENS = SA_TOKENS.filter(v => v.gtoken !== gtoken)
-          if (!SA_TOKENS.length) SA_TOKENS = get_sa_batch()
-          console.log(`This account has triggered the daily usage limit${EXCEED_LIMIT} consecutive times, the remaining amount of SA available in this batch：`, SA_TOKENS.length)
-        } else {
-          // console.log('This account triggers its daily usage limit and has been marked. If the next request is normal, it will be unmarked, otherwise the SA will be removed')
-          if (gtoken.exceed_count) {
-            gtoken.exceed_count++
-          } else {
-            gtoken.exceed_count = 1
-          }
-        }
-      }
+//       if (use_sa && message && message.toLowerCase().includes('rate limit')) {
+//         retry--
+//         if (gtoken.exceed_count >= EXCEED_LIMIT) {
+//           SA_TOKENS = SA_TOKENS.filter(v => v.gtoken !== gtoken)
+//           if (!SA_TOKENS.length) SA_TOKENS = get_sa_batch()
+//           console.log(`This account has triggered the daily usage limit${EXCEED_LIMIT} consecutive times, the remaining amount of SA available in this batch：`, SA_TOKENS.length)
+//         } else {
+//           // console.log('This account triggers its daily usage limit and has been marked. If the next request is normal, it will be unmarked, otherwise the SA will be removed')
+//           if (gtoken.exceed_count) {
+//             gtoken.exceed_count++
+//           } else {
+//             gtoken.exceed_count = 1
+//           }
+//         }
+//       }
     }
   }
   if (use_sa && !SA_TOKENS.length) {
